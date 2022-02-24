@@ -9,8 +9,8 @@ class KPDetector(nn.Module):
     Detecting a keypoints. Return keypoint position and jacobian near each keypoint.
     """
 
-    def __init__(self, block_expansion=32, num_kp=4, num_channels=3, max_features=2048,
-                 num_blocks=6, temperature=0.1, scale_factor=1, pad=0):
+    def __init__(self, block_expansion=32, num_kp=4, num_channels=3, max_features=1024,
+                 num_blocks=5, temperature=0.1, scale_factor=1, pad=0):
         super(KPDetector, self).__init__()
         self.predictor = Hourglass(block_expansion, in_features=num_channels,
                                    max_features=max_features, num_blocks=num_blocks)
