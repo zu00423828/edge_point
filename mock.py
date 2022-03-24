@@ -1,9 +1,9 @@
 from glob import glob
-from tkinter.font import names
 import pandas as pd
 
 # ffmpeg -i video frames/%06d.jpg
-#刪除非場地的畫面
+# 刪除非場地的畫面
+
 
 def create_mock():
     with open('data.csv', 'w+') as f:

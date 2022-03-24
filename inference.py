@@ -2,14 +2,15 @@ from model.kp_model import KPDetector
 import numpy as np
 import cv2
 import torch
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-device =torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 def kp2gaussian(kp, img_size):
     kp = (kp+1)/2*(img_size-1)
     return kp
 
 
-model = KPDetector().cuda()
+model = KPDetector().to(device)
 model.state_dict(torch.load('model.pth'))
 model.eval()
 img = cv2.imread('frames/000016.jpg')
