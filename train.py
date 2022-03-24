@@ -1,3 +1,4 @@
+from typing import Callable
 from torch import nn
 import torch
 from model.kp_model import KPDetector
@@ -14,7 +15,7 @@ def checkpoint_save(model: nn.Module, optimizer: Adam):
     torch.save(optimizer.state_dict(), 'optimizer.pth')
 
 
-def train(model: KPDetector, optimizer: Adam, dl: DataLoader, loss_fn: function, max_epoch: int):
+def train(model: KPDetector, optimizer: Adam, dl: DataLoader, loss_fn: Callable, max_epoch: int):
     model.train()
     for epoch in range(max_epoch):
         # print('epoch:', epoch+1, 'lr:', lr_scheduler.get_last_lr()[0])

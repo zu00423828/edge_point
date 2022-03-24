@@ -11,6 +11,5 @@ def create_mock():
             f.write(f'{item},420,244,298,592,983,589,860,240\n')
 
 
-create_mock()
-df = pd.read_csv('data.csv', names=[
-                 'path', 'p1_x', 'p1_y', 'p2_x', 'p2_y''p3_x''p3_y''p4_x''p4_y'])
+if __name__ == '__main__':
+    create_mock()
